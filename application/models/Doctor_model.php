@@ -12,7 +12,7 @@ class Doctor_model extends CI_model{
 			foreach ($fq->result() as $row) 
 			{
 				$data[] = $row;
-				echo "hi";
+				
 			}
 			return $data;
 		}
