@@ -9,7 +9,6 @@ class Load_info extends CI_Model
 
 	public function profile_data($username)
 	{
-		
 		$this->db->where('username' , $username);
 		$q = $this->db->get('profile');
 			if ($q->num_rows() == 1) {

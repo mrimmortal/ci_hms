@@ -1,8 +1,6 @@
 <?php
 class Doctor_model extends CI_model{
 
-	
-	
 	function fetchQueue($docid)
 	{
 		$sql = "SELECT reg_patient.registration as reg, reg_patient.patient_id as pid, patient_info.name as name from reg_patient, patient_info WHERE reg_patient.patient_id = patient_info.patient_id AND reg_patient.doctor_id =".$docid." AND date = cast(now() as date ) AND stat='Queue' ";
@@ -12,7 +10,6 @@ class Doctor_model extends CI_model{
 			foreach ($fq->result() as $row) 
 			{
 				$data[] = $row;
-				
 			}
 			return $data;
 		}

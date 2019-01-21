@@ -84,6 +84,20 @@ class Registration_model extends CI_Model{
 		}
 	}
 
+	function fetchOldPatient($pname)
+	{
+		$this->db->where('name',$pname);
+		$fop = $this->db->get('patient_info');
+		if($fop->num_rows() == 1)
+		{
+			foreach($fop->result() as $row)
+			{
+				$data7[] = $row;
+			}
+			return $data7;
+		}	
+	}
+
 	function fetchDoctorName($docid)
 	{
 		$this->db->select('name');

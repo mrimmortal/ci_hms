@@ -131,7 +131,6 @@
 													}
 												 ?>
 
-												
 												 <?php if(isset($records6)): ?>
 												<?php foreach($records6 as $row): ?>
 												<table class="table table-bordered">

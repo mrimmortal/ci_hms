@@ -42,9 +42,6 @@
 			$proftype = $row->type;
 			$profusername = $row->username;
 		} 
-		
-	
-
 	?>
 	
 	<!--THE SIDEBAR-->
@@ -141,9 +138,7 @@
 															  <option value="<?php echo $row->user_id; ?>"><?php echo $row->name; ?></option>
   															  <?php endforeach; ?>
 														</select>
-														 
 													</div>
-
 													<!--<div class="form-group">
 														<label class="col-md-6">Remarks:</label>
 														 <input type="text" id="a_remarks" class="form-control" placeholder="Sensitivity, History, etc." name="remarks">
