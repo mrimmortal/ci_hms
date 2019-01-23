@@ -43,9 +43,6 @@
 			$proftype = $row->type;
 			$profusername = $row->username;
 		} 
-		
-	
-
 	?>
 	
 	<!--THE SIDEBAR-->
