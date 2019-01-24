@@ -132,6 +132,10 @@
 														 <input type="text" class="form-control" placeholder="Registered Patient ID" name='patientid' >
 													</div>
 													<div class="form-group">
+														<label class="col-md-6">Patient Name:</label>
+														 <input type="text" class="form-control" placeholder="Registered Patient Name" name='patientName' >
+													</div>
+													<div class="form-group">
 														<label class="col-md-6">Doctor:</label>
 														 <select class="form-control" name='doctor' >
 															  <?php foreach ($records2 as $row): ?>

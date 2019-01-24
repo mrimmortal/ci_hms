@@ -50,7 +50,7 @@ class Registration extends CI_Controller{
 		$data['records3'] = $this->registration_model->patientid();
 		$data['records5'] = $this->registration_model->patient_record();
 		$data['records6'] = $this->registration_model->fetchOldPatient($pid);
-		$data['records7'] =$this->registration_model->fetchOldPatient($pname);
+		$data['records7'] =$this->registration_model->fetchOldPatientByName($pname);
 		$data['doctor'] = $this->registration_model->fetchDoctorName($doc);
 		$data['doctorid'] = $doc;
 		$this->load->view('RegistrationPage/oldreg',$data);
