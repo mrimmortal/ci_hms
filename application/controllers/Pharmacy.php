@@ -36,8 +36,6 @@ class Pharmacy extends CI_Controller{
 							'phone' => $this->input->post('phone'),
 							'address' => $this->input->post('address'),
 							'content' => $this->input->post('content'),
-							
-
 						);
 		$this->doctor_model->profile($updates);
 		$this->home();

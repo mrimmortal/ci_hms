@@ -36,13 +36,13 @@ class Registration extends CI_Controller{
 		$data['records'] = $this->load_info->profile_data($this->session->userdata('username'));
 		$data['records2'] = $this->registration_model->fetchDoctor();
 		$data['records5'] = $this->registration_model->patient_record();
+		$data['records6'] = $this->registration_model->all_patient_records();
 		$this->load->view('RegistrationPage/old_registration',$data);
 	}
 	
 	function oldview()
 	{
 		$pid = $this->input->post('patientid');
-		$pname = $this->input->post('patientname');
 		$doc = $this->input->post('doctor');
 		$this->load->model('load_info');
 		$data['records'] = $this->load_info->profile_data($this->session->userdata('username'));
@@ -50,13 +50,10 @@ class Registration extends CI_Controller{
 		$data['records3'] = $this->registration_model->patientid();
 		$data['records5'] = $this->registration_model->patient_record();
 		$data['records6'] = $this->registration_model->fetchOldPatient($pid);
-		$data['records7'] =$this->registration_model->fetchOldPatientByName($pname);
 		$data['doctor'] = $this->registration_model->fetchDoctorName($doc);
 		$data['doctorid'] = $doc;
 		$this->load->view('RegistrationPage/oldreg',$data);
 	}
-
-	
 
 	function new_patient()
 	{	//field name, User name, validaton rules

@@ -4,7 +4,8 @@ class Registration_model extends CI_Model{
 
 	function patient_record()
 	{
-		$pr = $this->db->query("SELECT reg_patient.patient_id, registration, profile.name as doctor, patient_info.name as name FROM `reg_patient`,`profile`,`patient_info` WHERE doctor_id = user_id AND date= cast(now() as date ) AND reg_patient.patient_id = patient_info.patient_id  ");
+		$pr = $this->db->query("SELECT reg_patient.patient_id as registration, profile.name as doctor, patient_info.name as name FROM `reg_patient`,`profile`,`patient_info` WHERE doctor_id = user_id AND date= cast(now() as date ) AND reg_patient.patient_id = patient_info.patient_id ");
+
 		if($pr->num_rows() > 0)
 		{
 			foreach ($pr->result() as $row) 
@@ -16,9 +17,27 @@ class Registration_model extends CI_Model{
 		}
 	}
 
-	function fetchPatient($patient_id)
+	function all_patient_records()
 	{
-				
+		$records = $this->db->query("SELECT * FROM `patient_info`");
+		//echo "<pre>";
+		//print_r($records->result());
+		//echo "</pre>";
+		//exit();
+		if($records->num_rows() > 0)
+		{
+			foreach ($records->result() as $row) 
+			{
+				$data6[]= $row;
+			}
+
+			return $data6;
+		}
+
+	}
+
+	function fetchPatient($patient_id)
+	{	
 			//$info = $this->db->query(SELECT * FROM `reg_patient`,`profile`,`patient_info` WHERE doctor_id = user_id AND date='2015-07-10' AND reg_patient.patient_id = patient_info.patient_id );
 			if($info->num_rows() == 1)
 			{
@@ -84,19 +103,7 @@ class Registration_model extends CI_Model{
 		}
 	}
 
-	function fetchOldPatientByName($pname)
-	{
-		$this->db->where('name',$pname);
-		$fop = $this->db->get('patient_info');
-		if($fop->num_rows() == 1)
-		{
-			foreach($fop->result() as $row)
-			{
-				$data7[] = $row;
-			}
-			return $data7;
-		}	
-	}
+
 
 	function fetchDoctorName($docid)
 	{

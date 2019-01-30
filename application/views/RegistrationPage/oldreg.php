@@ -170,7 +170,6 @@
 											<?php endif; ?>
 												<?php
 												 	$attributes = array('role' => 'form' );
-
 												?>
 												<?php if(isset($records6)): ?>
 												<?php echo form_open('registration/oldPatientReg',$attributes); ?>
